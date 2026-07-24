@@ -23,6 +23,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "ald.h"
+#include "util.h"
 
 #define DEFAULT_ALD_BASENAME "out"
 #define DEFAULT_OUTPUT_AIN "System39.ain"

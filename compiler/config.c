@@ -19,6 +19,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
+#include "util.h"
 
 Config config = {
 	.ain_magic = MAGIC_AINI,

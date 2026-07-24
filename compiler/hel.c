@@ -19,6 +19,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 
 #define MAX_DLL_FUNC_PARAMS 20
 

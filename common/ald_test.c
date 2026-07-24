@@ -15,11 +15,12 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
 */
-#include "common.h"
+#include "ald.h"
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 #undef NDEBUG
 
 #define TIMESTAMP 850953600  // 1996-12-19 00:00:00 UTC

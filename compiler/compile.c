@@ -20,6 +20,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 
 static Compiler *compiler;
 static const char *menu_item_start;

@@ -15,7 +15,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
 */
-#include "common.h"
 #include <errno.h>
 #include <fcntl.h>
 #include <getopt.h>
@@ -26,6 +25,8 @@
 #ifdef _POSIX_MAPPED_FILES
 #include <sys/mman.h>
 #endif
+#include "container.h"
+#include "util.h"
 #ifndef _O_BINARY
 #define _O_BINARY 0
 #endif

@@ -17,6 +17,7 @@
 */
 #include "xsys35c.h"
 #include <string.h>
+#include "util.h"
 
 #define TEST(name, source, expected) \
 	test(name, source, expected, sizeof(expected) - 1)

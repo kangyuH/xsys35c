@@ -57,6 +57,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "sjisutf.h"
+#include "util.h"
 
 Config config = {
 	.utf8_output = true,

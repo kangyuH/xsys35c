@@ -18,6 +18,7 @@
 #include "xsys35c.h"
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 
 static void ain_emit_HEL0(Buffer *out, Map *dlls) {
 	emit(out, 'H');

@@ -15,16 +15,19 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
 */
-#include "common.h"
 #include <ctype.h>
 #include <errno.h>
 #include <getopt.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
 #ifdef _WIN32
 #include <sys/utime.h>
 #endif
+#include "ald.h"
+#include "sjisutf.h"
+#include "util.h"
 
 static void usage(void) {
 	puts("Usage: ald <command> [<args>]");

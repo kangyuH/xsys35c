@@ -16,8 +16,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
 */
-#ifndef PNG_UTILS_H_
-#define PNG_UTILS_H_
+#ifndef TOOLS_PNG_UTILS_H
+#define TOOLS_PNG_UTILS_H
 
 #include <stdint.h>
 #include <stdio.h>

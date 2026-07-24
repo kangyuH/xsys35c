@@ -15,11 +15,12 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
 */
-#include "common.h"
-#include "s2utbl.h"
+#include "sjisutf.h"
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
+#include "s2utbl.h"
+#include "util.h"
 
 static const uint8_t hankaku81[] = {
 	0x20, 0xa4, 0xa1, 0x00, 0x00, 0xa5, 0x00, 0x00,

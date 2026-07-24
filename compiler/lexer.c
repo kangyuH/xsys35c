@@ -20,6 +20,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 
 const char *input_name;
 int input_page;

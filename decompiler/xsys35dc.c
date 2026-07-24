@@ -24,6 +24,9 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include "ald.h"
+#include "sjisutf.h"
+#include "util.h"
 
 static const char short_options[] = "adE:ho:sVv";
 static const struct option long_options[] = {

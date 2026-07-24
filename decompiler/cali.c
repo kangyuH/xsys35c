@@ -18,6 +18,7 @@
 #include "xsys35dc.h"
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 
 #define NODE_POOL_SIZE 1024
 

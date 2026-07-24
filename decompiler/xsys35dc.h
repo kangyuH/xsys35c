@@ -15,7 +15,16 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
 */
-#include "common.h"
+#ifndef DECOMPILER_XSYS35DC_H
+#define DECOMPILER_XSYS35DC_H
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdnoreturn.h>
+#include "container.h"
+#include "hel.h"
+#include "sco.h"
 
 typedef struct {
 	const uint8_t *data;
@@ -131,3 +140,5 @@ void warning_at(const uint8_t *pos, char *fmt, ...);
 // xsys35dc.c
 void convert_to_utf8(FILE *fp);
 const char *to_utf8(const char *s);
+
+#endif

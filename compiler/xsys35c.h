@@ -15,7 +15,17 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
 */
-#include "common.h"
+#ifndef COMPILER_XSYS35C_H
+#define COMPILER_XSYS35C_H
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "container.h"
+#include "hel.h"
+#include "sco.h"
+#include "sjisutf.h"
 
 // config.c
 
@@ -172,3 +182,5 @@ void debug_line_add(struct DebugInfo *di, int line, int addr);
 void debug_line_reset(struct DebugInfo *di);
 void debug_finish_page(struct DebugInfo *di, Map *labels);
 void debug_info_write(struct DebugInfo *di, Compiler *compiler, FILE *fp);
+
+#endif

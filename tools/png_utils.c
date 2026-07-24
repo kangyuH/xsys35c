@@ -17,9 +17,9 @@
  *
 */
 #include "png_utils.h"
-#include "common.h"
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 
 #ifdef _WIN32
 #define timegm _mkgmtime

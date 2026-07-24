@@ -1,7 +1,11 @@
-project('xsys35c', 'c')
+project('xsys35c', 'c', version : '1.13.0')
 fs = import('fs')
 
-xsys35c_version = '1.13.0'
+xsys35c_version = meson.project_version()
+add_project_arguments(
+  '-DVERSION="@0@"'.format(xsys35c_version),
+  language : 'c',
+)
 is_windows = host_machine.system() == 'windows'
 
 if host_machine.system() == 'emscripten'

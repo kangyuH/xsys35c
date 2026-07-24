@@ -17,6 +17,8 @@
 */
 #include "xsys35dc.h"
 #include <string.h>
+#include "sjisutf.h"
+#include "util.h"
 
 // These label names are hard-coded in NIGHTDLL.DLL and used to refer data blocks.
 static const char *night_data_labels[] = {

@@ -19,6 +19,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 
 Buffer *new_buf(void) {
 	Buffer *b = malloc(sizeof(Buffer));

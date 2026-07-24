@@ -16,7 +16,7 @@
  *
 */
 
-#include "common.h"
+#include "ald.h"
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -27,6 +27,8 @@
 #ifdef _POSIX_MAPPED_FILES
 #include <sys/mman.h>
 #endif
+#include "util.h"
+
 #ifndef _O_BINARY
 #define _O_BINARY 0
 #endif

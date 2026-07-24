@@ -15,9 +15,10 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
 */
-#include "common.h"
+#include "container.h"
 #include <stdlib.h>
 #include <string.h>
+#include "util.h"
 
 #define HASH_INIT_SIZE 16
 
