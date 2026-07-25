@@ -1,0 +1,43 @@
+name: Emscripten CI
+on: [push, pull_request]
+
+env:
+  EM_VERSION: latest
+  EM_CACHE_FOLDER: 'emsdk-cache'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v7
+
+    - name: Install Deps
+      run: |
+        sudo apt install meson
+
+    - name: Setup cache
+      id: cache-system-libraries
+      uses: actions/cache@v6
+      with:
+        path: ${{env.EM_CACHE_FOLDER}}
+        key: ${{env.EM_VERSION}}-${{ runner.os }}
+
+    - name: Setup Emscripten toolchain
+      uses: emscripten-core/setup-emsdk@v16
+      with:
+        version: ${{env.EM_VERSION}}
+        actions-cache-folder: ${{env.EM_CACHE_FOLDER}}
+
+    - name: Build
+      run: |
+        meson setup --cross-file=misc/emscripten.ini --buildtype=release wasm
+        ninja -C wasm
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v7
+      with:
+        name: xsys35c-wasm
+        path: |
+          wasm/*.js
+          wasm/*.wasm
