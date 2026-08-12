@@ -1,0 +1,192 @@
+	{VAR516 = 0:
+		CC VAR21 + 1280, VAR22, 640, 400, 0, 0:
+		%0:
+	}
+	{VAR516 = 1:
+*L_0004a:
+		{VAR206:
+			!RND : 16!
+		}
+		{VAR206 = 0:
+			IM VAR204, VAR205:
+		}
+		!VAR206 : 0!
+		!VAR29 : VAR43!
+		!VAR30 : VAR44!
+		{RND \ 16:
+			@L_00206:
+		}
+		IC 6, VAR27:
+*L_00089:
+		IM VAR202, VAR203:
+		{RND = 0:
+			@L_0012e:
+		}
+		{RND \ 16:
+			!VAR43 : VAR29!
+			!VAR44 : VAR30!
+			@L_0012e:
+		}
+		{(VAR204 \ VAR202) + (VAR205 \ VAR203):
+			!VAR43 : VAR43 + (VAR204 - VAR202) - (VAR202 - VAR204)!
+			{VAR43 > 1280:
+				!VAR43 : 1280!
+			}
+			!VAR44 : VAR44 + (VAR205 - VAR203) - (VAR203 - VAR205)!
+			{VAR44 > 400:
+				!VAR44 : 400!
+			}
+			CC VAR43 + 1280, VAR44, 640, 400, 0, 0:
+			Y 3, VAR225:
+			!VAR204 : VAR202!
+			!VAR205 : VAR203!
+		}
+		@L_00089:
+*L_0012e:
+		IC VAR27, RND:
+		!VAR21 : VAR204 - VAR202!
+		!VAR22 : VAR205 - VAR203!
+		!VAR23 : VAR202 - VAR204!
+		!VAR24 : VAR203 - VAR205!
+		!VAR28 : 3!
+*L_00158:
+		IM VAR202, VAR203:
+		{RND:
+			@L_0004a:
+		}
+		{VAR21 + VAR22 + VAR23 + VAR24 = 0:
+			@L_00206:
+		}
+		!VAR43 : VAR43 + VAR21 - VAR23!
+		{VAR43 > 1280:
+			!VAR43 : 1280!
+		}
+		!VAR44 : VAR44 + VAR22 - VAR24!
+		{VAR44 > 400:
+			!VAR44 : 400!
+		}
+		CC VAR43 + 1280, VAR44, 640, 400, 0, 0:
+		Y 3, VAR225:
+		!VAR204 : VAR202!
+		!VAR205 : VAR203!
+		!VAR21 : VAR21 * (8 - VAR28) / 10!
+		!VAR22 : VAR22 * (8 - VAR28) / 10!
+		!VAR23 : VAR23 * (8 - VAR28) / 10!
+		!VAR24 : VAR24 * (8 - VAR28) / 10!
+		!VAR28 : VAR28 - 10!
+		@L_00158:
+*L_00206:
+		!VAR21 : VAR29 - VAR43 + (VAR43 - VAR29)!
+		!VAR22 : VAR30 - VAR44 + (VAR44 - VAR30)!
+		%0:
+	}
+	{VAR516 = 2:
+		%0:
+	}
+	{VAR516 = 3:
+		J0 640 * 2, 0:
+		G VAR219:
+		J0 640 * 3, 0:
+		G VAR221:
+		J0 640 * 4, 0:
+		G VAR223:
+		J0 640 * 2, 400:
+		G VAR220:
+		J0 640 * 3, 400:
+		G VAR222:
+		J0 640 * 4, 400:
+		G VAR224:
+		!VAR210 : 0!
+*L_00290:
+		{VAR210 < VAR212:
+			!VAR21 : VAR213 + 1280!
+			!VAR22 : VAR214!
+			!VAR23 : VAR211!
+			{VAR23 > 10000:
+				!VAR22 : VAR22 - 18!
+				!VAR23 : VAR23 - 10000!
+			}
+			J0 VAR21, VAR22:
+			G VAR23, 40:
+			!VAR210 : VAR210 + 1!
+			@L_00290:
+		}
+		%0:
+	}
+	{VAR516 = 4:
+		\L_00477:
+		!VAR213 : VAR21!
+		!VAR214 : VAR22!
+		!VAR211 : VAR23!
+		!VAR212 : VAR212 + RND!
+		%0:
+	}
+	{VAR516 = 5:
+		\L_00477:
+		{RND = 0:
+			!VAR215 : VAR210 + 1!
+			NB VAR213, VAR217, 99 - VAR210:
+			NB VAR214, VAR218, 99 - VAR210:
+			NB VAR211, VAR216, 99 - VAR210:
+		}
+		%0:
+	}
+	{VAR516 = 100:
+		!VAR43 : 640!
+		!VAR44 : 200!
+		!VAR21 : VAR43!
+		!VAR22 : VAR44!
+		!VAR516 : 0!
+		%#WAO_MAP.ADV:
+		B3 1, 10, 350, 300, 40, 1:
+		B4 1, 1, 0, 0, 0, 0:
+*L_00399:
+		IM VAR31, VAR32:
+		!VAR516 : 1!
+		%#WAO_MAP.ADV:
+		IM VAR21, VAR22:
+		{((VAR21 = VAR31) + (VAR22 = VAR32)) * (RND = 16):
+			CF VAR21 - 7, VAR22 - 7, 16, 16, 255:
+			Y 1, 0:
+			'Ｘ＝'
+			H 0, VAR43 + VAR21:
+			'：Ｙ＝'
+			H 0, VAR44 + VAR22:
+		}
+		{RND = 32:
+			!VAR43 : VAR43 + 320!
+			!VAR44 : VAR44 + 200!
+			!VAR45 : VAR43 + VAR21 - 320!
+			!VAR46 : VAR44 + VAR22 - 200!
+			!VAR516 : 10!
+			%#M.ADV:
+			!VAR43 : VAR43 - 320!
+			!VAR44 : VAR44 - 200!
+			@L_00399:
+		}
+		{RND \ 48:
+			@L_00399:
+		}
+*L_0043c:
+		IM VAR21, VAR22:
+		{RND:
+			@L_0043c:
+		}
+		%0:
+	}
+	'すっぽぬけエラー　ＷＡＯ＿ＭＡＰ．ＡＤＶ'A
+	%0:
+*L_00477:
+	!VAR210 : 0!
+	!RND : 1!
+*L_00480:
+	{VAR210 < VAR212:
+		{(VAR213 = VAR21) * (VAR214 = VAR22):
+			!RND : 0!
+			@L_004b0:
+		}
+		!VAR210 : VAR210 + 1!
+		@L_00480:
+	}
+*L_004b0:
+	\0:

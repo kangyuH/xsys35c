@@ -1,0 +1,310 @@
+	{VAR516 = 0:
+		!VAR516 : 0!
+		!VAR21 : VAR43 - 320!
+		!VAR22 : VAR44 - 200!
+		{VAR21 > 1280:
+			!VAR21 : 1280!
+		}
+		{VAR22 > 400:
+			!VAR22 : 400!
+		}
+		PC 6:
+		G VAR219:
+		PC 7:
+		%#WAO_MAP.ADV:
+		!VAR524 : 0!
+		!VAR525 : 0!
+		!VAR526 : 0!
+		%0:
+	}
+	{VAR516 = 1:
+		!VAR39 : VAR45!
+		!VAR40 : VAR46!
+		{VAR45 < 320:
+			!VAR45 : 320!
+		}
+		{VAR46 < 200:
+			!VAR46 : 200!
+		}
+		{VAR43 < 320:
+			!VAR43 : 320!
+		}
+		{VAR44 < 200:
+			!VAR44 : 200!
+		}
+		{VAR45 > 1600:
+			!VAR45 : 1600!
+		}
+		{VAR46 > 600:
+			!VAR46 : 600!
+		}
+		{VAR43 > 1600:
+			!VAR43 : 1600!
+		}
+		{VAR44 > 600:
+			!VAR44 : 600!
+		}
+		!VAR29 : VAR43 - VAR45 + (VAR45 - VAR43)!
+		!VAR30 : VAR44 - VAR46 + (VAR46 - VAR44)!
+		{VAR29 + VAR30 = 0:
+			@L_0026a:
+		}
+		!VAR21 : VAR29!
+		{VAR21 > 9:
+			!VAR22 : VAR21 / 10!
+			{VAR22 > 15:
+				!VAR23 : VAR29 / 15!
+				@L_00161:
+			}
+			!VAR23 : VAR29 / VAR22!
+			@L_00161:
+		}
+		!VAR23 : 1!
+*L_00161:
+		!VAR21 : VAR30!
+		{VAR21 > 19:
+			!VAR22 : VAR21 / 10!
+			{VAR22 > 15:
+				!VAR24 : VAR30 / 15!
+				@L_00197:
+			}
+			!VAR24 : VAR30 / VAR22!
+			@L_00197:
+		}
+		!VAR24 : 1!
+*L_00197:
+		!VAR21 : VAR43 - VAR45!
+		!VAR22 : VAR45 - VAR43!
+		{VAR21 * (VAR21 < VAR23) + VAR22 * (VAR22 < VAR23):
+			!VAR43 : VAR45!
+			@L_001db:
+		}
+		{VAR21 > 0:
+			!VAR43 : VAR43 - VAR23!
+		}
+		{VAR22 > 0:
+			!VAR43 : VAR43 + VAR23!
+		}
+*L_001db:
+		!VAR21 : VAR44 - VAR46!
+		!VAR22 : VAR46 - VAR44!
+		{VAR21 * (VAR21 < VAR24) + VAR22 * (VAR22 < VAR24):
+			!VAR44 : VAR46!
+			@L_0021f:
+		}
+		{VAR21 > 0:
+			!VAR44 : VAR44 - VAR24!
+		}
+		{VAR22 > 0:
+			!VAR44 : VAR44 + VAR24!
+		}
+*L_0021f:
+		!VAR21 : VAR43 - 320!
+		!VAR22 : VAR44 - 200!
+		{VAR21 > 1280:
+			!VAR21 : 1280!
+		}
+		{VAR22 > 400:
+			!VAR22 : 400!
+		}
+		!VAR516 : 0!
+		%#WAO_MAP.ADV:
+		Y 3, 5:
+		{(VAR43 \ VAR45) + (VAR44 \ VAR46):
+			@L_00197:
+		}
+*L_0026a:
+		!VAR45 : VAR39!
+		!VAR46 : VAR40!
+		!VAR43 : VAR45!
+		!VAR44 : VAR46!
+		%0:
+	}
+	{VAR516 = 3:
+		%#WAO_MAP.ADV:
+		%0:
+	}
+	{VAR516 = 4:
+		!VAR23 : VAR21 + 10000!
+		!VAR21 : VAR45!
+		!VAR22 : VAR46!
+		%#WAO_MAP.ADV:
+		%0:
+	}
+	{VAR516 = 5:
+		!VAR21 : VAR45!
+		!VAR22 : VAR46!
+		%#WAO_MAP.ADV:
+		%0:
+	}
+	{VAR516 = 10:
+		!VAR21 : VAR43!
+		!VAR22 : VAR44!
+		{VAR21 < 320:
+			!VAR21 : 320!
+		}
+		{VAR22 < 200:
+			!VAR22 : 200!
+		}
+		{VAR21 > 1600:
+			!VAR21 : 1600!
+		}
+		{VAR22 > 600:
+			!VAR22 : 600!
+		}
+		!VAR23 : VAR45!
+		!VAR24 : VAR46!
+		{VAR23 > 1920:
+			!VAR23 : 1920!
+		}
+		{VAR24 > 800:
+			!VAR24 : 800!
+		}
+		!VAR25 : 320 + (VAR23 - VAR21) - (VAR21 - VAR23) - 16!
+		!VAR26 : 200 + (VAR24 - VAR22) - (VAR22 - VAR24) - 16!
+		!VAR516 : 0!
+		!RND : 109!
+		%#PCMPLAY.ADV:
+		!VAR23 : 3!
+		J0 640, 0:
+		G 814:
+*L_00374:
+		CS 640, 0, 32, 32, VAR25, VAR26, 40:
+		Y 3, 8:
+		CC VAR25 + VAR21 + 1280 - 320, VAR26 + VAR22 + 0 - 200, 32, 32, VAR25, VAR26:
+		Y 3, 8:
+		{VAR23:
+			!VAR23 : VAR23 - 1!
+			@L_00374:
+		}
+		%0:
+	}
+	{VAR516 = 11:
+		EC 0:
+		Y 3, 30:
+		%0:
+	}
+	{VAR516 = 12:
+		!VAR516 : 0!
+		!VAR21 : VAR43 - 320!
+		!VAR22 : VAR44 - 200!
+		{VAR21 > 1280:
+			!VAR21 : 1280!
+		}
+		{VAR22 > 400:
+			!VAR22 : 400!
+		}
+		%#WAO_MAP.ADV:
+		Y 3, 30:
+		%0:
+	}
+	{VAR516 = 13:
+		!VAR21 : VAR43!
+		!VAR22 : VAR44!
+		{VAR21 < 320:
+			!VAR21 : 320!
+		}
+		{VAR22 < 200:
+			!VAR22 : 200!
+		}
+		{VAR21 > 1600:
+			!VAR21 : 1600!
+		}
+		{VAR22 > 600:
+			!VAR22 : 600!
+		}
+		!VAR23 : VAR45!
+		!VAR24 : VAR46!
+		{VAR23 > 1920:
+			!VAR23 : 1920!
+		}
+		{VAR24 > 800:
+			!VAR24 : 800!
+		}
+		!VAR25 : 320 + (VAR23 - VAR21) - (VAR21 - VAR23) - 16!
+		!VAR26 : 200 + (VAR24 - VAR22) - (VAR22 - VAR24) - 16!
+		!VAR23 : 3!
+		J0 640, 0:
+		G 814:
+*L_004bf:
+		CS 640, 0, 32, 32, VAR25, VAR26, 40:
+		Y 3, 8:
+		CC VAR25 + VAR21 + 1280 - 320, VAR26 + VAR22 + 0 - 200, 32, 32, VAR25, VAR26:
+		Y 3, 8:
+		{VAR23:
+			!VAR23 : VAR23 - 1!
+			@L_004bf:
+		}
+		%0:
+	}
+	'すっぽぬけエラー　Ｍ．ＡＤＶ'A
+	%0:
+	!VAR521 : 111!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 211!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 112!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 212!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 113!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 213!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 311!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 312!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 121!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 221!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 122!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 222!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 123!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 223!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 321!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 322!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 131!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 231!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 331!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 332!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 0!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 1!
+	%#WAO_SUB.ADV:
+	\0:
+	!VAR521 : 2!
+	%#WAO_SUB.ADV:
+	\0:
