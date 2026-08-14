@@ -1,0 +1,44 @@
+= ADV Translation Catalog Tool
+
+`tools/adv_text.py` extracts player-visible text from a decompiled System 3.x
+ADV project and safely applies translated JSONL records to a new project
+directory. It never modifies the input project.
+
+== Extract
+
+....
+python3 tools/adv_text.py extract decompiled \
+  --output translations.jsonl \
+  --candidates candidates.jsonl
+....
+
+The main catalog contains messages, menus, and known display-string command
+arguments. Ambiguous string variables and double-quoted data are written to
+the candidate catalog. Each record has a stable structural ID, exact source
+hash, source location, context, and locked `⟦ADV:n⟧` placeholders.
+
+Fill the `translation` field without changing, moving, duplicating, or
+removing placeholders. Set `status` to `skipped` to explicitly ignore a
+record. Empty translations are also ignored.
+
+== Apply
+
+....
+python3 tools/adv_text.py apply decompiled translations.jsonl \
+  --output generated-adv
+....
+
+The output directory must not already exist. Before writing, the tool reparses
+the input and requires the record ID, original text, exact source hash, raw
+source, and placeholder metadata to match. It aborts rather than attempting a
+fuzzy replacement when the baseline has changed.
+
+Candidate catalogs require explicit permission:
+
+....
+python3 tools/adv_text.py apply decompiled candidates.jsonl \
+  --output generated-candidates --allow-candidates
+....
+
+ADV input encoding is read from `xsys35c.cfg`. UTF-8 and CP932/SJIS are
+supported; catalogs and reports are always UTF-8.

@@ -123,6 +123,12 @@ test('regression_test',
   workdir : meson.current_source_dir(),
   depends : [xsys35c, xsys35dc, ald, alk, vsp, pms, qnt])
 
+python3 = find_program('python3', 'python')
+test('adv_text_test',
+  python3,
+  args : ['tools/adv_text_test.py'],
+  workdir : meson.current_source_dir())
+
 #
 # docs
 #
@@ -131,6 +137,7 @@ docs = [
   ['docs/ald.adoc', ['ald.1']],
   ['docs/alk.adoc', ['alk.1']],
   ['docs/adv_language.adoc', []],
+  ['docs/adv_text.adoc', []],
   ['docs/unicode.adoc', []],
   ['docs/vsp.adoc', ['vsp.1', 'pms.1', 'qnt.1']],
   ['docs/xsys35c.adoc', ['xsys35c.1']],
