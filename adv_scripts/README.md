@@ -26,6 +26,42 @@ unicode = true
 
 除此之外，`project/` 应保持为官方日文反编译结果。正式中文译文必须保存在翻译目录中，再由回填工具生成独立构建副本；不要直接在本目录写入中文或手工修改脚本逻辑。
 
+## 一键编译到测试目录
+
+先确保本仓库的 `build/xsys35c` 已经生成，然后在仓库根目录运行：
+
+```bash
+./build-adv-dev.sh
+```
+
+脚本将 `project/` 编译为 Unicode `鬼畜王SA.ALD`，再部署到 `workspace/dev/`。如果测试目录已有 SA，旧文件会按北京时间归档为：
+
+```text
+workspace/dev/archive/鬼畜王SA_YYYYMMDDHHMMSS.ald
+```
+
+编译和所有预检完成前不会移动现有 SA；部署、配置或校验失败时会自动恢复原 SA 和原配置。归档文件不会自动删除。
+
+测试目录的 `.xsys35rc` 会保留其他自定义配置，并固定更新以下三个受控键：
+
+```text
+ttfont_mincho: C:/Windows/Fonts/msyh.ttc
+ttfont_gothic: C:/Windows/Fonts/msyh.ttc
+savedir: save
+```
+
+微软雅黑常规体是当前 Windows 游戏内测试确认的字体。脚本只引用系统字体，不复制或分发字体文件；修改字体配置后需要完全退出并重新启动 `xsystem35.exe`。
+
+成功后，脚本还会更新 `ADV-SCRIPT-BUILD.txt` 和 `SHA256SUMS.txt`。可通过环境变量覆盖默认路径：
+
+```bash
+ADV_DEV_DIR=/path/to/test-game \
+XSYS35C_BIN=/path/to/xsys35c \
+./build-adv-dev.sh
+```
+
+`ADV_DEV_DIR` 必须已经包含 `xsystem35.exe` 以及官方 GA、GB、WA 三个资源包。脚本不会修改 `VERSION.txt`、存档和其他游戏资源。
+
 ## 本次验证
 
 - 201/201 个 ADV 和全部配置文件严格通过 UTF-8 检查。

@@ -129,6 +129,17 @@ test('adv_text_test',
   args : ['tools/adv_text_test.py'],
   workdir : meson.current_source_dir())
 
+test('build_adv_dev_test',
+  python3,
+  args : [
+    'tools/build_adv_dev_test.py',
+    xsys35c.full_path(),
+    ald.full_path(),
+  ],
+  workdir : meson.current_source_dir(),
+  depends : [xsys35c, ald],
+  timeout : 120)
+
 #
 # docs
 #
