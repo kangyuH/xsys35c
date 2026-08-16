@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-08-16T23:33:58+08:00",
+  "description": "Full ADV project after glossary-llm terminology pass",
+  "source_generated": "workspace/translation/generated-adv/approved/project",
+  "overlay": "workspace/translation/overlays/adv-v1",
+  "glossary": "workspace/translation/glossary/selected-v1.tsv",
+  "sa_ald_sha256": "58bba64810f396bdd1324e809019e6edf91f849d7d042f1b5e0a2f43ae0a4352",
+  "file_count": 205,
+  "adv_count": 201,
+  "tree_fingerprint": "ac88a234a02232b3d0b4cde07c3aadef38d4dcc7d74deea95a90b7528220a084"
+}
